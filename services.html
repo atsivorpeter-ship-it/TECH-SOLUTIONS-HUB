@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Tech Solutions & Digital Skills Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0a4c6f;
+            --accent-cyan: #00d4ff;
+            --accent-coral: #ff6b6b;
+            --dark-blue: #052d44;
+            --light-gray: #f5f7fa;
+            --text-dark: #1a2332;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light-gray);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        nav {
+            position: relative;
+            z-index: 10;
+            padding: 1.5rem 5%;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        h1 a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-cyan);
+        }
+
+        .page-header {
+            position: relative;
+            z-index: 5;
+            padding: 4rem 5% 5rem;
+            text-align: center;
+        }
+
+        .page-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        main {
+            padding: 4rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 60px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.3s; }
+        .service-card:nth-child(3) { animation-delay: 0.4s; }
+        .service-card:nth-child(4) { animation-delay: 0.5s; }
+        .service-card:nth-child(5) { animation-delay: 0.6s; }
+        .service-card:nth-child(6) { animation-delay: 0.7s; }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-coral));
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--primary-blue));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.6rem 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+            margin-top: 4rem;
+            color: white;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .cta-section h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-coral);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+            background: #ff5252;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 5%;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .page-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 2rem;
+            }
+
+            .cta-section {
+                padding: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-content">
+                <h1><a href="index1.html">Tech Solutions & Digital Skills Hub</a></h1>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="page-header">
+            <h2>Our Services</h2>
+            <p>Comprehensive technology education and digital skills development</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Web Development</h3>
+                <p>Master the art of building modern, responsive websites and web applications. From HTML/CSS fundamentals to advanced JavaScript frameworks.</p>
+                <ul class="service-features">
+                    <li>HTML5, CSS3, and JavaScript fundamentals</li>
+                    <li>Responsive design and mobile-first approach</li>
+                    <li>Modern frameworks: React, Vue, Angular</li>
+                    <li>Backend development with Node.js</li>
+                    <li>Database integration and API development</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Artificial Intelligence</h3>
+                <p>Explore the fascinating world of AI and machine learning. Learn how to build intelligent systems and leverage AI in your projects.</p>
+                <ul class="service-features">
+                    <li>AI fundamentals and concepts</li>
+                    <li>Machine learning algorithms</li>
+                    <li>Deep learning and neural networks</li>
+                    <li>Natural language processing</li>
+                    <li>Computer vision applications</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔒</div>
+                <h3>Cybersecurity</h3>
+                <p>Protect your digital assets with comprehensive cybersecurity knowledge. Learn best practices for securing systems and data.</p>
+                <ul class="service-features">
+                    <li>Network security fundamentals</li>
+                    <li>Threat detection and prevention</li>
+                    <li>Ethical hacking and penetration testing</li>
+                    <li>Security best practices</li>
+                    <li>Compliance and risk management</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Mobile Development</h3>
+                <p>Create powerful mobile applications for iOS and Android. Learn native and cross-platform development techniques.</p>
+                <ul class="service-features">
+                    <li>iOS development with Swift</li>
+                    <li>Android development with Kotlin</li>
+                    <li>Cross-platform with React Native</li>
+                    <li>Flutter framework</li>
+                    <li>Mobile UI/UX best practices</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">☁️</div>
+                <h3>Cloud Computing</h3>
+                <p>Harness the power of cloud platforms to build scalable, reliable applications. Master AWS, Azure, and Google Cloud.</p>
+                <ul class="service-features">
+                    <li>Cloud architecture fundamentals</li>
+                    <li>AWS, Azure, and GCP platforms</li>
+                    <li>Containerization with Docker</li>
+                    <li>Kubernetes orchestration</li>
+                    <li>Serverless computing</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Data Science & Analytics</h3>
+                <p>Transform data into actionable insights. Learn data analysis, visualization, and predictive modeling techniques.</p>
+                <ul class="service-features">
+                    <li>Data analysis with Python and R</li>
+                    <li>Statistical modeling</li>
+                    <li>Data visualization tools</li>
+                    <li>Big data technologies</li>
+                    <li>Business intelligence</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>Ready to Start Your Learning Journey?</h3>
+            <p>Join thousands of learners who are transforming their careers with our comprehensive technology courses and resources.</p>
+            <a href="contact.html" class="cta-button">Get Started Today</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Tech Solutions & Digital Skills Hub</p>
+    </footer>
+</body>
+</html>
